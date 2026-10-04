@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Для Кристины 💗</title>
+<title>Для Кристины</title>
 <meta name="theme-color" content="#fff4f1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
 <style>
   :root{
     --bg:#fff4f1; --bg2:#ffe6e1; --card:#ffffffcc; --ink:#3a2229; --muted:#8a6a72;
-    --rose:#e8546f; --rose2:#ff8fa3; --gold:#c99a5b; --line:#f3d3d3;
+    --rose:#e8546f; --rose2:#ff8fa3; --gold:#c99a5b; --line:#f3d3d3; --tint:#fff0f2;
     --shadow:0 10px 40px -12px rgba(232,84,111,.35);
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -23,22 +23,26 @@
     min-height:100vh;overflow-x:hidden;
   }
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 80px;position:relative;z-index:2}
-  h1,h2,.serif{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:-.01em}
+  h1,h2,h3,.serif{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:-.01em}
+
+  /* icons */
+  svg.lucide{width:1em;height:1em;stroke-width:1.8;vertical-align:-.14em;flex:none}
+  .ic{display:grid;place-items:center;flex:none;background:var(--tint);color:var(--rose);transition:.15s}
 
   /* floating hearts */
   #hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-  .h{position:absolute;bottom:-40px;opacity:.0;animation:rise linear forwards;color:var(--rose2)}
+  .h{position:absolute;bottom:-40px;opacity:0;animation:rise linear forwards;color:var(--rose2);font-family:serif}
   @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.8}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
 
   /* hero */
   .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 0}
-  .badge{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .crown{width:76px;height:76px;border-radius:50%;font-size:36px;color:var(--gold);background:#fff;box-shadow:var(--shadow);margin-bottom:22px;animation:float 3s ease-in-out infinite}
+  .badge{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
   .hero h1{font-size:clamp(54px,16vw,92px);line-height:.9;margin:0}
   .hero h1 em{font-style:italic;color:var(--rose);display:block}
   .hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:380px;margin:22px auto 0}
-  .crown{font-size:44px;animation:float 3s ease-in-out infinite}
   @keyframes float{50%{transform:translateY(-8px)}}
-  .scroll{margin-top:44px;font-size:13px;color:var(--muted);animation:float 2s ease-in-out infinite}
+  .scroll{margin-top:44px;font-size:13px;color:var(--muted);animation:float 2s ease-in-out infinite;display:flex;gap:6px;align-items:center}
 
   section{margin-top:40px}
   .card{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
@@ -48,14 +52,13 @@
 
   /* reasons */
   .reasons{display:grid;gap:12px}
-  .reason{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:#fff;border:1px solid var(--line);
+  .reason{display:flex;gap:14px;align-items:center;padding:12px 14px;border-radius:18px;background:#fff;border:1px solid var(--line);
     opacity:0;transform:translateY(16px);transition:.6s cubic-bezier(.2,.7,.2,1)}
   .reason.in{opacity:1;transform:none}
-  .reason b{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--rose);line-height:1;min-width:30px}
-  .reason span{font-size:15px;line-height:1.5}
+  .reason .ic{width:42px;height:42px;border-radius:13px;font-size:20px}
+  .reason span{font-size:15px;line-height:1.45}
 
   /* meter */
-  .meter{margin-top:6px}
   .bar{height:16px;border-radius:99px;background:var(--bg2);overflow:hidden}
   .fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--rose2),var(--rose));transition:width 2.2s cubic-bezier(.2,.7,.2,1)}
   .meter-row{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-top:8px}
@@ -65,7 +68,7 @@
   .ask{text-align:center}
   .ask h2{font-size:42px}
   .btns{position:relative;height:130px;margin-top:18px}
-  .btn{border:0;border-radius:99px;font:600 17px Manrope,sans-serif;padding:16px 34px;cursor:pointer;transition:transform .15s}
+  .btn{border:0;border-radius:99px;font:600 17px Manrope,sans-serif;padding:16px 30px;cursor:pointer;transition:transform .15s;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
   .btn:active{transform:scale(.96)}
   .yes{background:linear-gradient(135deg,var(--rose2),var(--rose));color:#fff;box-shadow:0 10px 24px -8px var(--rose)}
   .no{background:#fff;color:var(--muted);border:1px solid var(--line);position:absolute;transition:left .25s,top .25s}
@@ -76,122 +79,191 @@
   #planner{display:none}
   #planner.show{display:block;animation:pop .6s cubic-bezier(.2,.7,.2,1)}
   @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.98)}}
-  .step{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:26px 0 10px;font-weight:700}
-  .step:first-of-type{margin-top:0}
+  .step{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:26px 0 10px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .step svg{font-size:15px}
   .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .cal-head .serif{font-size:26px;text-transform:capitalize}
-  .nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);cursor:pointer}
+  .nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;color:var(--ink);cursor:pointer;display:grid;place-items:center}
   .nav:disabled{opacity:.3}
   .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
   .dow{font-size:11px;text-align:center;color:var(--muted);padding:4px 0;font-weight:600}
-  .day{aspect-ratio:1;border-radius:14px;border:0;background:#fff;font:600 15px Manrope,sans-serif;color:var(--ink);cursor:pointer;transition:.15s}
+  .day{aspect-ratio:1;border-radius:14px;border:0;background:#fff;font:600 15px Manrope,sans-serif;color:var(--ink);cursor:pointer;transition:.15s;padding:0}
   .day:disabled{background:transparent;color:#d9c3c7;cursor:default}
   .day.today{outline:1.5px solid var(--rose2)}
   .day.sel{background:var(--rose);color:#fff;transform:scale(1.06);box-shadow:0 6px 16px -6px var(--rose)}
-  .empty{background:none}
 
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:10px 16px;font:600 14px Manrope,sans-serif;color:var(--ink);cursor:pointer;transition:.15s}
   .chip.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
 
   .places{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .place{border:1px solid var(--line);background:#fff;border-radius:20px;padding:16px 12px;text-align:left;cursor:pointer;font-family:Manrope,sans-serif;color:var(--ink);transition:.15s}
-  .place i{font-style:normal;font-size:28px;display:block;margin-bottom:8px}
+  .place{border:1px solid var(--line);background:#fff;border-radius:20px;padding:14px 12px;text-align:left;cursor:pointer;font-family:Manrope,sans-serif;color:var(--ink);transition:.15s}
+  .place .ic{width:44px;height:44px;border-radius:14px;font-size:22px;margin-bottom:10px}
   .place b{display:block;font-size:14px}
   .place small{color:var(--muted);font-size:12px}
-  .place.sel{border-color:var(--rose);background:#fff0f2;box-shadow:inset 0 0 0 1px var(--rose)}
+  .place.sel{border-color:var(--rose);background:var(--tint);box-shadow:inset 0 0 0 1px var(--rose)}
+  .place.sel .ic{background:var(--rose);color:#fff}
   input,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:14px 16px;font:500 15px Manrope,sans-serif;color:var(--ink);outline:none}
   input:focus,textarea:focus{border-color:var(--rose2)}
   textarea{resize:none;height:80px}
   #customPlace{margin-top:10px;display:none}
 
-  .summary{margin-top:24px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff,#fff0f2);border:1px dashed var(--rose2);font-size:15px;line-height:1.7}
-  .summary .serif{font-size:24px;display:block;margin-bottom:4px}
+  .rows{display:grid;gap:10px;font-size:15px}
+  .row{display:flex;align-items:center;gap:10px}
+  .row svg{color:var(--rose);font-size:18px}
+  .muted{color:var(--muted)}
+  .summary{margin-top:24px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff,var(--tint));border:1px dashed var(--rose2)}
+  .summary .serif{font-size:24px;display:block;margin-bottom:10px}
   .send{width:100%;margin-top:16px;padding:18px}
   .send:disabled{opacity:.45}
-  .hint{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
 
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px}
-  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);opacity:0;background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:14px;transition:.3s;z-index:9}
+  footer svg{color:var(--rose)}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);opacity:0;background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:14px;transition:.3s;z-index:30}
   .toast.on{opacity:1;transform:translate(-50%,0)}
+
+  /* parallax */
+  .px{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .layer{position:absolute;will-change:transform}
+  .blob{border-radius:50%;filter:blur(40px);opacity:.55}
+  .b1{width:320px;height:320px;background:#ffc2cc;left:-90px;top:8vh}
+  .b2{width:260px;height:260px;background:#ffe0c2;right:-80px;top:55vh}
+  .b3{width:300px;height:300px;background:#ffd0e0;left:20vw;top:130vh}
+  .b4{width:240px;height:240px;background:#ffe6cc;right:-60px;top:190vh}
+  .deco{color:var(--rose2);opacity:.35}
+  .deco svg{stroke-width:1.2}
+  .hero-in{will-change:transform,opacity}
+  .rv{opacity:0;transform:translateY(60px) scale(.96);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.layer,.hero-in{transform:none!important}.rv{opacity:1;transform:none}}
+
+  /* overlays */
+  .ov{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;
+    background:rgba(58,34,41,.38);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    opacity:0;pointer-events:none;transition:opacity .35s}
+  .ov.on{opacity:1;pointer-events:auto}
+  .sheet{position:relative;width:100%;max-width:380px;max-height:calc(100svh - 40px);overflow:auto;background:#fff;border-radius:30px;padding:30px 22px 22px;text-align:center;
+    box-shadow:0 30px 80px -20px rgba(232,84,111,.55);transform:translateY(30px) scale(.94);transition:transform .45s cubic-bezier(.2,.8,.2,1.2)}
+  .ov.on .sheet{transform:none}
+  .big{width:84px;height:84px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:38px;
+    background:linear-gradient(135deg,var(--rose2),var(--rose));box-shadow:0 14px 30px -10px var(--rose);animation:beat 1.3s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}45%{transform:scale(1.07)}}
+  .sheet h3{font-size:38px;margin:0 0 6px;line-height:1}
+  .sheet p{color:var(--muted);margin:0 0 20px;font-size:15px;line-height:1.5}
+  .sheet .btn{width:100%}
+  .ghost{background:#fff;color:var(--ink);border:1px solid var(--line);margin-top:10px}
+  .msg{text-align:left;background:#fff7f8;border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:18px}
+  .x{position:absolute;right:14px;top:14px;width:36px;height:36px;border-radius:50%;border:0;background:var(--tint);color:var(--muted);font-size:18px;display:grid;place-items:center;cursor:pointer}
 </style>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 </head>
 <body>
+<div class="px" id="px">
+  <div class="layer blob b1" data-s=".15"></div>
+  <div class="layer blob b2" data-s=".3"></div>
+  <div class="layer blob b3" data-s=".22"></div>
+  <div class="layer blob b4" data-s=".4"></div>
+  <div class="layer deco" data-s=".6" data-r="20" style="left:8%;top:18vh;font-size:44px"><i data-lucide="heart"></i></div>
+  <div class="layer deco" data-s=".45" data-r="-30" style="right:10%;top:30vh;font-size:30px"><i data-lucide="sparkles"></i></div>
+  <div class="layer deco" data-s=".8" data-r="40" style="right:14%;top:82vh;font-size:52px"><i data-lucide="flower-2"></i></div>
+  <div class="layer deco" data-s=".35" data-r="-15" style="left:6%;top:110vh;font-size:36px"><i data-lucide="star"></i></div>
+  <div class="layer deco" data-s=".7" data-r="25" style="left:70%;top:150vh;font-size:40px"><i data-lucide="heart"></i></div>
+  <div class="layer deco" data-s=".5" data-r="-35" style="left:12%;top:200vh;font-size:34px"><i data-lucide="sparkles"></i></div>
+</div>
 <div id="hearts"></div>
 
 <div class="wrap">
-  <header class="hero">
-    <div class="crown">👑</div>
+  <header class="hero"><div class="hero-in" id="heroIn" style="display:flex;flex-direction:column;align-items:center">
+    <div class="crown ic"><i data-lucide="crown"></i></div>
     <div class="badge">официальное заявление</div>
     <h1>Кристина <em>самая красивая</em></h1>
     <p>Это не мнение. Это научно доказанный факт, подтверждённый всеми звёздами, цветами и закатами этого мира.</p>
-    <div class="scroll">листай вниз ↓</div>
-  </header>
+    <div class="scroll">листай вниз <i data-lucide="chevron-down"></i></div>
+  </div></header>
 
-  <section class="card">
+  <section class="rv card">
     <h2>Доказательства</h2>
     <p class="sub">Неопровержимые. Проверено лично.</p>
     <div class="reasons" id="reasons"></div>
   </section>
 
-  <section class="card meter">
+  <section class="rv card">
     <h2>Уровень красоты</h2>
     <p class="sub">Измерено самым точным прибором</p>
     <div class="bar"><div class="fill" id="fill"></div></div>
     <div class="meter-row"><span>обычные люди</span><span id="pct">0%</span></div>
   </section>
 
-  <section class="card ask" id="askCard">
+  <section class="rv card ask" id="askCard">
     <h2>Кристина, пойдёшь со мной гулять?</h2>
-    <p class="sub">Выбор очевиден, но я всё равно спрошу 🥺</p>
+    <p class="sub">Выбор очевиден, но я всё равно спрошу</p>
     <div class="btns" id="btns">
-      <button class="btn yes" id="yesBtn">Да 💗</button>
+      <button class="btn yes" id="yesBtn">Да <i data-lucide="heart"></i></button>
       <button class="btn no" id="noBtn">Нет</button>
     </div>
   </section>
 
-  <section class="card" id="planner">
-    <h2>Куда гуляем? ✨</h2>
+  <section class="rv card" id="planner">
+    <h2>Куда гуляем?</h2>
     <p class="sub">Выбирай как тебе удобно — всё будет по-твоему</p>
 
-    <div class="step">01 · День</div>
+    <div class="step"><i data-lucide="calendar-heart"></i> 01 · День</div>
     <div class="cal-head">
-      <button class="nav" id="prev" aria-label="Предыдущий месяц">‹</button>
+      <button class="nav" id="prev" aria-label="Предыдущий месяц"><i data-lucide="chevron-left"></i></button>
       <div class="serif" id="month"></div>
-      <button class="nav" id="next" aria-label="Следующий месяц">›</button>
+      <button class="nav" id="next" aria-label="Следующий месяц"><i data-lucide="chevron-right"></i></button>
     </div>
     <div class="grid" id="cal"></div>
 
-    <div class="step">02 · Время</div>
+    <div class="step"><i data-lucide="clock"></i> 02 · Время</div>
     <div class="chips" id="times"></div>
 
-    <div class="step">03 · Место</div>
+    <div class="step"><i data-lucide="map-pin"></i> 03 · Место</div>
     <div class="places" id="places"></div>
     <input id="customPlace" placeholder="Напиши своё место…">
 
-    <div class="step">04 · Пожелания</div>
-    <textarea id="wish" placeholder="Например: хочу цветы и мороженое 🌷🍦"></textarea>
+    <div class="step"><i data-lucide="message-circle-heart"></i> 04 · Пожелания</div>
+    <textarea id="wish" placeholder="Например: хочу цветы и мороженое"></textarea>
 
-    <div class="summary" id="summary"></div>
-    <button class="btn yes send" id="send" disabled>Отправить ответ 💌</button>
-    <div class="hint">Откроется Telegram — просто отправь мне сообщение</div>
+    <div class="summary"><span class="serif">Наша прогулка</span><div class="rows" id="summary"></div></div>
+    <button class="btn yes send" id="send" disabled>Отправить ответ <i data-lucide="send"></i></button>
   </section>
 
-  <footer>сделано с любовью · специально для тебя 💗</footer>
+  <footer>сделано с любовью · специально для тебя <i data-lucide="heart"></i></footer>
 </div>
+
+<div class="ov" id="ovYes"><div class="sheet">
+  <div class="big"><i data-lucide="heart"></i></div>
+  <h3>Ураа!</h3>
+  <p>Я самый счастливый человек на свете.<br>Осталось выбрать день, время и куда пойдём.</p>
+  <button class="btn yes" id="goPlan">Выбрать <i data-lucide="arrow-down"></i></button>
+</div></div>
+
+<div class="ov" id="ovSend"><div class="sheet">
+  <button class="x" id="closeSend" aria-label="Закрыть"><i data-lucide="x"></i></button>
+  <div class="big"><i data-lucide="mail-check"></i></div>
+  <h3>Почти готово</h3>
+  <p>Вот что придёт мне. Нажми кнопку и выбери меня в Telegram.</p>
+  <div class="msg rows" id="msg"></div>
+  <a class="btn yes" id="tgLink" target="_blank" rel="noopener">Открыть Telegram <i data-lucide="send"></i></a>
+  <button class="btn ghost" id="copyBtn"><i data-lucide="copy"></i> Скопировать текст</button>
+</div></div>
+
 <div class="toast" id="toast"></div>
 
 <script>
+const $=id=>document.getElementById(id);
+function icons(){ if(window.lucide) lucide.createIcons(); }
+
 const reasons = [
-  "Улыбка, от которой в комнате становится светлее",
-  "Глаза, в которых можно потеряться навсегда",
-  "Смех — лучший звук на свете",
-  "Красивая не только снаружи, но и внутри",
-  "Даже в пижаме выглядит как с обложки",
-  "С ней любой обычный день становится особенным",
+  ['smile',"Улыбка, от которой в комнате становится светлее"],
+  ['eye',"Глаза, в которых можно потеряться навсегда"],
+  ['music',"Смех — лучший звук на свете"],
+  ['heart',"Красивая не только снаружи, но и внутри"],
+  ['star',"Даже в пижаме выглядит как с обложки"],
+  ['sun',"С ней любой обычный день становится особенным"],
 ];
-const rEl = document.getElementById('reasons');
-reasons.forEach((t,i)=>{ rEl.insertAdjacentHTML('beforeend',`<div class="reason"><b>${i+1}</b><span>${t}</span></div>`) });
+reasons.forEach(([ic,t])=>$('reasons').insertAdjacentHTML('beforeend',`<div class="reason"><div class="ic"><i data-lucide="${ic}"></i></div><span>${t}</span></div>`));
 
 const io = new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting) return;
@@ -200,46 +272,53 @@ const io = new IntersectionObserver(es=>es.forEach(e=>{
   io.unobserve(e.target);
 }),{threshold:.3});
 document.querySelectorAll('.reason').forEach((r,i)=>{ r.style.transitionDelay=i*90+'ms'; io.observe(r) });
-io.observe(document.getElementById('fill'));
+io.observe($('fill'));
 function countUp(){
-  const el=document.getElementById('pct'); let n=0;
-  const t=setInterval(()=>{ n+= n<100?3:97; if(n>=1000){n=1000;clearInterval(t)} el.textContent=(n>100?'∞ ('+n:n)+'%'+(n>100?')':''); },30);
-  setTimeout(()=>{clearInterval(t);el.textContent='∞ %'},2600);
+  let n=0; const t=setInterval(()=>{ n=Math.min(n+3,100); $('pct').textContent=n+'%'; if(n===100){clearInterval(t);setTimeout(()=>$('pct').textContent='∞ %',500)} },22);
 }
 
 // hearts
-const hearts=document.getElementById('hearts'), sym=['💗','♥','❤','💕','✿'];
+const sym=['♥','♥','♡','✿'];
 function heart(burst){
   const s=document.createElement('div'); s.className='h';
   s.textContent=sym[Math.random()*sym.length|0];
-  s.style.left=Math.random()*100+'vw'; s.style.fontSize=(12+Math.random()*(burst?26:16))+'px';
+  s.style.left=Math.random()*100+'vw'; s.style.fontSize=(14+Math.random()*(burst?28:16))+'px';
   s.style.animationDuration=(burst?3:7+Math.random()*6)+'s';
-  hearts.appendChild(s); setTimeout(()=>s.remove(),14000);
+  $('hearts').appendChild(s); setTimeout(()=>s.remove(),14000);
 }
 setInterval(()=>heart(false),900);
+function burst(n){ for(let i=0;i<n;i++) setTimeout(()=>heart(true),i*40); }
+
+// overlays
+function ov(id,on){ $(id).classList.toggle('on',on); document.body.style.overflow=on?'hidden':''; }
+document.querySelectorAll('.ov').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o) ov(o.id,false) }));
+$('closeSend').onclick=()=>ov('ovSend',false);
 
 // runaway "no"
-const noBtn=document.getElementById('noBtn'), box=document.getElementById('btns');
-const noTexts=['Нет','Точно?','Подумай ещё','Не-а 😏','Ну пожалуйста','Кнопка сломалась'];
+const noBtn=$('noBtn'), box=$('btns');
+const noTexts=['Нет','Точно?','Подумай ещё','Не-а','Ну пожалуйста','Кнопка сломалась'];
 let noCount=0;
 function runAway(e){
   e && e.preventDefault();
   const w=box.clientWidth-noBtn.offsetWidth, h=box.clientHeight-noBtn.offsetHeight;
   noBtn.style.left=Math.random()*w+'px'; noBtn.style.top=Math.random()*h+'px';
   noBtn.textContent=noTexts[++noCount%noTexts.length];
-  const y=document.getElementById('yesBtn'); y.style.transform=`translateX(-110%) scale(${Math.min(1+noCount*.08,1.5)})`;
+  $('yesBtn').style.transform=`translateX(-110%) scale(${Math.min(1+noCount*.08,1.5)})`;
 }
 noBtn.addEventListener('mouseenter',runAway);
 noBtn.addEventListener('touchstart',runAway,{passive:false});
 noBtn.addEventListener('click',runAway);
 
-document.getElementById('yesBtn').onclick=()=>{
-  for(let i=0;i<40;i++) setTimeout(()=>heart(true),i*40);
-  document.querySelector('#askCard h2').textContent='Ураа! Я самый счастливый 🥰';
-  document.querySelector('#askCard .sub').textContent='Теперь выбери, когда и где';
+$('yesBtn').onclick=()=>{
+  burst(40); ov('ovYes',true);
+  document.querySelector('#askCard h2').textContent='Ураа! Я самый счастливый';
+  document.querySelector('#askCard .sub').textContent='Теперь выбери, когда и куда';
   box.style.display='none';
-  const p=document.getElementById('planner'); p.classList.add('show');
-  setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),300);
+};
+$('goPlan').onclick=()=>{
+  ov('ovYes',false);
+  $('planner').classList.add('show');
+  setTimeout(()=>$('planner').scrollIntoView({behavior:'smooth',block:'start'}),250);
 };
 
 // calendar
@@ -250,12 +329,12 @@ const months=['январь','февраль','март','апрель','май'
 const monthsGen=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 const days=['вс','пн','вт','ср','чт','пт','сб'];
 function renderCal(){
-  document.getElementById('month').textContent=months[view.getMonth()]+' '+view.getFullYear();
-  document.getElementById('prev').disabled = view<=new Date(today.getFullYear(),today.getMonth(),1);
-  const c=document.getElementById('cal'); c.innerHTML='';
+  $('month').textContent=months[view.getMonth()]+' '+view.getFullYear();
+  $('prev').disabled = view<=new Date(today.getFullYear(),today.getMonth(),1);
+  const c=$('cal'); c.innerHTML='';
   ['пн','вт','ср','чт','пт','сб','вс'].forEach(d=>c.insertAdjacentHTML('beforeend',`<div class="dow">${d}</div>`));
   const off=(view.getDay()+6)%7, n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
-  for(let i=0;i<off;i++) c.insertAdjacentHTML('beforeend','<div class="empty"></div>');
+  for(let i=0;i<off;i++) c.insertAdjacentHTML('beforeend','<div></div>');
   for(let d=1;d<=n;d++){
     const dt=new Date(view.getFullYear(),view.getMonth(),d);
     const b=document.createElement('button'); b.className='day'; b.textContent=d;
@@ -266,65 +345,84 @@ function renderCal(){
     c.appendChild(b);
   }
 }
-document.getElementById('prev').onclick=()=>{view.setMonth(view.getMonth()-1);renderCal()};
-document.getElementById('next').onclick=()=>{view.setMonth(view.getMonth()+1);renderCal()};
+$('prev').onclick=()=>{view.setMonth(view.getMonth()-1);renderCal()};
+$('next').onclick=()=>{view.setMonth(view.getMonth()+1);renderCal()};
 renderCal();
 
 // times
-const times=['12:00','14:00','16:00','17:00','18:00','19:00','20:00'];
-const tEl=document.getElementById('times');
-times.forEach(t=>{
+['12:00','14:00','16:00','17:00','18:00','19:00','20:00'].forEach(t=>{
   const b=document.createElement('button'); b.className='chip'; b.textContent=t;
-  b.onclick=()=>{state.time=t;[...tEl.children].forEach(x=>x.classList.toggle('sel',x===b));update()};
-  tEl.appendChild(b);
+  b.onclick=()=>{state.time=t;[...$('times').children].forEach(x=>x.classList.toggle('sel',x===b));update()};
+  $('times').appendChild(b);
 });
 
 // places
 const places=[
-  ['🌳','Парк','деревья и лавочки'],
-  ['🌊','Набережная','вода и закат'],
-  ['🏙️','Центр города','улочки и огни'],
-  ['☕','С кофе в руках','гуляем и греемся'],
-  ['🍦','За мороженым','сладкая прогулка'],
-  ['✍️','Свой вариант','придумай сама'],
+  ['trees','Парк','деревья и лавочки'],
+  ['waves','Набережная','вода и закат'],
+  ['building-2','Центр города','улочки и огни'],
+  ['coffee','С кофе в руках','гуляем и греемся'],
+  ['ice-cream-cone','За мороженым','сладкая прогулка'],
+  ['pencil-line','Свой вариант','придумай сама'],
 ];
-const pEl=document.getElementById('places'), custom=document.getElementById('customPlace');
+const custom=$('customPlace');
 places.forEach(([i,n,s])=>{
   const b=document.createElement('button'); b.className='place';
-  b.innerHTML=`<i>${i}</i><b>${n}</b><small>${s}</small>`;
+  b.innerHTML=`<div class="ic"><i data-lucide="${i}"></i></div><b>${n}</b><small>${s}</small>`;
   b.onclick=()=>{
-    [...pEl.children].forEach(x=>x.classList.toggle('sel',x===b));
+    [...$('places').children].forEach(x=>x.classList.toggle('sel',x===b));
     const own=n==='Свой вариант'; custom.style.display=own?'block':'none';
-    state.place= own ? (custom.value.trim()||null) : `${i} ${n}`;
+    state.place= own ? (custom.value.trim()||null) : n;
     if(own) custom.focus();
     update();
   };
-  pEl.appendChild(b);
+  $('places').appendChild(b);
 });
-custom.oninput=()=>{state.place=custom.value.trim()?'📍 '+custom.value.trim():null;update()};
-document.getElementById('wish').oninput=update;
+custom.oninput=()=>{state.place=custom.value.trim()||null;update()};
 
+const esc=s=>s.replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
 function fmtDate(d){return `${d.getDate()} ${monthsGen[d.getMonth()]}, ${days[d.getDay()]}`}
+function rows(){
+  const r=(ic,v,ph)=>`<div class="row"><i data-lucide="${ic}"></i>${v?esc(v):'<span class="muted">'+ph+'</span>'}</div>`;
+  return r('calendar-heart',state.date&&fmtDate(state.date),'выбери день')+r('clock',state.time,'выбери время')+r('map-pin',state.place,'выбери место');
+}
 function update(){
-  const s=document.getElementById('summary');
-  s.innerHTML=`<span class="serif">Наша прогулка</span>
-    📅 ${state.date?fmtDate(state.date):'<span style="color:var(--muted)">выбери день</span>'}<br>
-    🕐 ${state.time||'<span style="color:var(--muted)">выбери время</span>'}<br>
-    ${state.place||'<span style="color:var(--muted)">📍 выбери место</span>'}`;
-  document.getElementById('send').disabled=!(state.date&&state.time&&state.place);
+  $('summary').innerHTML=rows(); icons();
+  $('send').disabled=!(state.date&&state.time&&state.place);
 }
 update();
 
-document.getElementById('send').onclick=()=>{
-  const wish=document.getElementById('wish').value.trim();
-  const text=`Да, я пойду с тобой гулять! 💗\n\n📅 ${fmtDate(state.date)}\n🕐 ${state.time}\n${state.place}${wish?'\n\n💭 '+wish:''}`;
-  const url='https://t.me/share/url?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(text);
-  if(navigator.clipboard) navigator.clipboard.writeText(text).catch(()=>{});
-  toast('Скопировано! Открываю Telegram…');
-  for(let i=0;i<30;i++) setTimeout(()=>heart(true),i*50);
-  setTimeout(()=>window.open(url,'_blank'),600);
+$('send').onclick=()=>{
+  const wish=$('wish').value.trim();
+  const text=`Да, я пойду с тобой гулять! ♥\n\nКогда: ${fmtDate(state.date)}, ${state.time}\nГде: ${state.place}${wish?'\nПожелания: '+wish:''}`;
+  $('tgLink').href='https://t.me/share/url?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(text);
+  $('msg').innerHTML=rows()+(wish?`<div class="row"><i data-lucide="message-circle-heart"></i>${esc(wish)}</div>`:'');
+  icons();
+  $('copyBtn').onclick=()=>{ (navigator.clipboard?navigator.clipboard.writeText(text):Promise.reject()).then(()=>toast('Скопировано'),()=>toast('Не получилось скопировать')) };
+  burst(30); ov('ovSend',true);
 };
-function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2500)}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2200)}
+// parallax
+const layers=[...document.querySelectorAll('.layer')], heroIn=$('heroIn');
+let mx=0,my=0,ticking=false;
+function paint(){
+  const y=scrollY, vh=innerHeight;
+  layers.forEach(l=>{
+    const sp=+l.dataset.s, r=+(l.dataset.r||0);
+    l.style.transform=`translate3d(${mx*sp*30}px,${-y*sp+my*sp*30}px,0) rotate(${y/vh*r}deg)`;
+  });
+  const k=Math.min(y/vh,1);
+  heroIn.style.transform=`translate3d(0,${y*.45}px,0) scale(${1-k*.12})`;
+  heroIn.style.opacity=1-k*1.2;
+  ticking=false;
+}
+const req=()=>{ if(!ticking){ticking=true;requestAnimationFrame(paint)} };
+addEventListener('scroll',req,{passive:true});
+addEventListener('pointermove',e=>{ if(e.pointerType!=='mouse') return; mx=e.clientX/innerWidth-.5; my=e.clientY/innerHeight-.5; req(); });
+addEventListener('deviceorientation',e=>{ if(e.gamma==null) return; mx=Math.max(-1,Math.min(1,e.gamma/30))/2; my=Math.max(-1,Math.min(1,(e.beta-45)/30))/2; req(); });
+paint();
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+icons();
 </script>
 </body>
 </html>
