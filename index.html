@@ -142,7 +142,7 @@
   </section>
 
   <section class="card ask" id="askCard">
-    <h2>Кристина, пойдёшь со мной на свидание?</h2>
+    <h2>Кристина, пойдёшь со мной гулять?</h2>
     <p class="sub">Выбор очевиден, но я всё равно спрошу 🥺</p>
     <div class="btns" id="btns">
       <button class="btn yes" id="yesBtn">Да 💗</button>
@@ -151,7 +151,7 @@
   </section>
 
   <section class="card" id="planner">
-    <h2>Планируем ✨</h2>
+    <h2>Куда гуляем? ✨</h2>
     <p class="sub">Выбирай как тебе удобно — всё будет по-твоему</p>
 
     <div class="step">01 · День</div>
@@ -281,11 +281,11 @@ times.forEach(t=>{
 
 // places
 const places=[
-  ['☕','Кофейня','кофе и десерты'],
-  ['🌳','Прогулка','парк, набережная'],
-  ['🍝','Ресторан','красивый ужин'],
-  ['🎬','Кино','фильм на выбор'],
-  ['🎡','Развлечения','каток, аттракционы'],
+  ['🌳','Парк','деревья и лавочки'],
+  ['🌊','Набережная','вода и закат'],
+  ['🏙️','Центр города','улочки и огни'],
+  ['☕','С кофе в руках','гуляем и греемся'],
+  ['🍦','За мороженым','сладкая прогулка'],
   ['✍️','Свой вариант','придумай сама'],
 ];
 const pEl=document.getElementById('places'), custom=document.getElementById('customPlace');
@@ -307,7 +307,7 @@ document.getElementById('wish').oninput=update;
 function fmtDate(d){return `${d.getDate()} ${monthsGen[d.getMonth()]}, ${days[d.getDay()]}`}
 function update(){
   const s=document.getElementById('summary');
-  s.innerHTML=`<span class="serif">Наше свидание</span>
+  s.innerHTML=`<span class="serif">Наша прогулка</span>
     📅 ${state.date?fmtDate(state.date):'<span style="color:var(--muted)">выбери день</span>'}<br>
     🕐 ${state.time||'<span style="color:var(--muted)">выбери время</span>'}<br>
     ${state.place||'<span style="color:var(--muted)">📍 выбери место</span>'}`;
@@ -317,7 +317,7 @@ update();
 
 document.getElementById('send').onclick=()=>{
   const wish=document.getElementById('wish').value.trim();
-  const text=`Да, я пойду на свидание! 💗\n\n📅 ${fmtDate(state.date)}\n🕐 ${state.time}\n${state.place}${wish?'\n\n💭 '+wish:''}`;
+  const text=`Да, я пойду с тобой гулять! 💗\n\n📅 ${fmtDate(state.date)}\n🕐 ${state.time}\n${state.place}${wish?'\n\n💭 '+wish:''}`;
   const url='https://t.me/share/url?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(text);
   if(navigator.clipboard) navigator.clipboard.writeText(text).catch(()=>{});
   toast('Скопировано! Открываю Telegram…');
